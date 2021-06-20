@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 int num_palavras=0;
@@ -68,13 +69,27 @@ public:
 };
 
 int main () {
+/**
     Trie *obj = new Trie();
 
-    obj -> insert ("dbacaxi");
+    obj -> insert ("abacaxi");
     obj -> insert ("cbk");
-    obj -> insert ("dbacaxi");
-    obj -> insert ("dbacaxi");
+    obj -> insert ("abacaxi");
+    obj -> insert ("abacaxi");
 
     obj->Index();
+*/
+string dados;
+ofstream texto;
+texto.open("texto1.txt");
+if(texto.is_open()){
+    getline(texto, dados);
+    arquivo_e.close();
+    }
+cout<< dados;
+
+
+
+
 
 }
