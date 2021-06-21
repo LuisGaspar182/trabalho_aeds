@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 #include <vector>
 #include <fstream>
+#include <iostream>
+#include <string>
 
 using namespace std;
 int num_palavras=0;
@@ -68,6 +70,33 @@ public:
 
 };
 
+ vector<string> insere_arquivo(const string busca){
+    ifstream arq;
+    char carc;
+    const char* str;
+    string tmp_string;
+    int i=0;
+    vector<string> palavras;
+    vector<char> Palavra;
+    arq.open(busca);
+    if(arq.is_open()){
+        while(arq.get(carc)){
+            if(carc == ' '){
+                str = NULL;
+                for (int n = 0; n < Palavra.size(); n++)
+                    str += Palavra[n];
+                //tmp_string(str);
+                cout << str << endl;
+                palavras.push_back(tmp_string);
+                Palavra.clear();
+            }else{
+               Palavra.push_back(carc);
+            }
+        }
+        arq.close();
+        return palavras;
+    }else cout << "Não foi possível abrir o arquivo!" <<endl;
+ }
 int main () {
 /**
     Trie *obj = new Trie();
@@ -79,17 +108,16 @@ int main () {
 
     obj->Index();
 */
-string dados;
-ofstream texto;
-texto.open("texto1.txt");
-if(texto.is_open()){
-    getline(texto, dados);
-    arquivo_e.close();
+    vector<string> p;
+
+    p = insere_arquivo("../texto1.txt");
+    for (int n = 0; n < p.size(); n++){
+        cout << p[n] << " ";
     }
-cout<< dados;
 
 
 
 
 
+    return 0;
 }
